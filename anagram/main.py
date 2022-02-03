@@ -1,42 +1,29 @@
 mylist = []
 mydict = {}
 mylist4 = []
-with open("myfile.txt", 'r', encoding = "ISO-8859-1") as this:
+with open("wordlist.txt", 'r', encoding = "ISO-8859-1") as this, open("myfile2.txt", 'w', encoding = "ISO-8859-1") as that:
     for line in this:
         mylist.append(line.strip().lower())
+    mylist = list(set(mylist))
     mylist.sort(key=len)
     mylist2 = mylist.copy()
     i = 0
     for m1 in mylist:
         mylist3 = []
-        print(i)
+        #print(i)
         for m2 in mylist2:
             if len(m2) != len(m1):
+                #print("break")
                 break
             if sorted(m1) == sorted(m2):
                 mylist3.append(m2)
-        #print("2222222")
-        if len(mylist3) != 0:
-            # mydict.update({m1: mylist3})
-            mylist4.append(mylist3)
-        #print("3333333")
+                #print(m2)
+                that.write(m2)
+                that.write(" ")
+        that.write("\n")
         for item in mylist3:
             mylist2.remove(item)
-        i += 1
-    print("44444")
-    print(mylist4)
-        #print(mylist2)
-    #print("the largest = ", mylist[-1], "and it's dolingos are ", mydict[mylist[-1]])
-    #print(mydict)
-    
-with open("myfile2.txt", 'w', encoding = "ISO-8859-1") as that:
-    for item in mylist4:
-        for i in item:
-            that.write(i)
-            that.write(" ")
-        that.write("\n")
-        #print(i)
-
+        #i += 1
 
 
 
