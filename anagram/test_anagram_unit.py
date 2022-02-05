@@ -4,7 +4,7 @@ from anagrampkg.anagramlib import apply_anagram
 class Testanagram(unittest.TestCase):
     def test_apply_anagram(self):
         """
-        tesh the anagram output 
+        tesh if the anagram output is matched with the expected output
         """
         self.assertEqual(
         apply_anagram(['tacio', 'tac', 'act', 'cat', 'catx', 'xcat', 'atxc', 'aimn', 'iamn', 'main', 'xcot']), 

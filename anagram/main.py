@@ -2,16 +2,16 @@ from anagrampkg.anagramlib import apply_anagram
 
 def main():  
     try:         
-        with open("wordlist.txt", 'r', encoding = "ISO-8859-1") as this, open("output.txt", 'w', encoding = "ISO-8859-1") as that:
-            mylist = []
-            for line in this:
-                mylist.append(line.strip().lower())
-            mylist = list(set(mylist))
-            ordered_dict = apply_anagram(mylist)
+        with open("wordlist.txt", 'r', encoding = "ISO-8859-1") as input_file, open("output.txt", 'w', encoding = "ISO-8859-1") as output_file:
+            input_list = []
+            for line in input_file:
+                input_list.append(line.strip().lower())
+            input_list = list(set(input_list))
+            ordered_dict = apply_anagram(input_list)
             for key in ordered_dict:
                 if len(ordered_dict[key]) > 1:
-                    that.write(" ".join(ordered_dict[key]))
-                    that.write("\n")
+                    output_file.write(" ".join(ordered_dict[key]))
+                    output_file.write("\n")
     except FileNotFoundError:
         print("File does not exist")
     except:
