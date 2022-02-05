@@ -7,16 +7,15 @@ def main():
             for line in this:
                 mylist.append(line.strip().lower())
             mylist = list(set(mylist))
-            mylist.sort(key=len)
-            ordered_list = apply_anagram(mylist)
-            for item in ordered_list:
-                if len(item) > 1:
-                    that.write(" ".join(item))
+            ordered_dict = apply_anagram(mylist)
+            for key in ordered_dict:
+                if len(ordered_dict[key]) > 1:
+                    that.write(" ".join(ordered_dict[key]))
                     that.write("\n")
     except FileNotFoundError:
         print("File does not exist")
     except:
-        print("unexpected error related ti the file")
+        print("unexpected error related to the file")
 
 if __name__ == '__main__':
     main()
