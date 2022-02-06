@@ -1,4 +1,4 @@
-package main
+package anaexec
 
 import (
 	"anagram/python/test/anagram-golang/anagrampkg"
@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-func main() {
+func Anaexec() {
 
 	// Read the file, breake the lines and append each line as a value in the slice
-	originalList := sliceFile("wordlist.txt")
+	originalList := sliceFile("../wordlist.txt")
 
 	// calculate the anagram
 	output := anagrampkg.AnagramFanout(originalList)
