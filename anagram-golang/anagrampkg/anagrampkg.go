@@ -45,7 +45,7 @@ func AnagramFanout(originalList []string) map[string][]string {
 }
 
 func calculate(word string, originalList []string, mymap map[string][]string, mu *sync.Mutex) {
-	wordAsci := []rune(word)
+	wordAsci := []rune(word) //superset of asccis(all chars)
 	var tempList []string
 	sort.SliceStable(wordAsci, func(i, j int) bool { return wordAsci[i] < wordAsci[j] })
 	mu.Lock()

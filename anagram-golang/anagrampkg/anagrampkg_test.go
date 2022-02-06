@@ -15,9 +15,11 @@ func TestAnagramFanout(t *testing.T) {
 		"aimn":  {"aimn", "iamn", "main"},
 		"cotx":  {"xcot"},
 	}
-	originalList := []string{"tacio", "tac", "act", "cat", "catx", "xcat", "atxc", "aimn", "iamn", "main", "xcot"}
+	originalList := []string{"tacio", "tac", "act", "cat", "catx",
+		"xcat", "atxc", "aimn", "iamn", "main", "xcot"}
 	// given section
-	t.Log("Anagram function should return a map that includes all anagram words as a value of the sorted anagram key")
+	t.Log(`Anagram function should return a map that includes 
+	all anagram words as a value of the sorted anagram key`)
 	{
 		t.Log("\ttest 0: check if the output of ", originalList, " is: ", result)
 		{

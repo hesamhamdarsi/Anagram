@@ -7,8 +7,10 @@ class Testanagram(unittest.TestCase):
         tesh if the anagram output is matched with the expected output
         """
         self.assertEqual(
-        apply_anagram(['tacio', 'tac', 'act', 'cat', 'catx', 'xcat', 'atxc', 'aimn', 'iamn', 'main', 'xcot']), 
-        {'aciot': ['tacio'], 'act': ['tac', 'act', 'cat'], 'actx': ['catx', 'xcat', 'atxc'], 'aimn': ['aimn', 'iamn', 'main'], 'cotx': ['xcot']}, 
+        apply_anagram(['tacio', 'tac', 'act', 'cat', 'catx', \
+            'xcat', 'atxc', 'aimn', 'iamn', 'main', 'xcot']), 
+        {'aciot': ['tacio'], 'act': ['tac', 'act', 'cat'], \
+            'actx': ['catx', 'xcat', 'atxc'], 'aimn': ['aimn', 'iamn', 'main'], 'cotx': ['xcot']}, 
         "output is not matched")
     
 if __name__ == '__main__':

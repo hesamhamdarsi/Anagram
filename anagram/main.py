@@ -1,8 +1,12 @@
+#! /usr/bin/python3
 from anagrampkg.anagramlib import apply_anagram
 
 def main():  
     try:         
-        with open("wordlist.txt", 'r', encoding = "ISO-8859-1") as input_file, open("output.txt", 'w', encoding = "ISO-8859-1") as output_file:
+        with open("wordlist.txt", 'r', encoding = "ISO-8859-1") as \
+            input_file, open("output.txt", 'w', encoding = "ISO-8859-1") \
+            as output_file:
+                
             input_list = []
             for line in input_file:
                 input_list.append(line.strip().lower())
