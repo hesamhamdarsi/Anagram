@@ -1,11 +1,14 @@
-# TOC
-### Objective
-### solutions
-- ### Python
-- ### Golang
-### Test results
-
+```diff
+- ### Objective
+- ### solutions
++ ### Python
++ ### Golang
+- Test results
+```
 #
+
+### Objective:
+creating a progeram that will get a file including any number of words, look for the words that are anagram and print them in a file
 
 ### Python
 there are multiple methods that enable us to write a bunch of codes for sorting a file in a way 
