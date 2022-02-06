@@ -25,7 +25,7 @@ using this method I don't have to create a lot of go routins and so wait to the 
 I also included the heart of the program in a package so that I can test it well as well as make the program more readable and exposing the package anyway
 the following lines show the main part of the packge:
 
-,,,go
+,,,python
 for worker := 0; worker < coreNum; worker++ {
 		go func(worker int) {
 			defer wg.Done()
