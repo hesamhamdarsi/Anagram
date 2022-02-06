@@ -1,10 +1,9 @@
-```diff
-- ### Objective
-- ### solutions
-+ ### Python
-+ ### Golang
-- Test results
-```
+### Objective
+### solutions
+- ### Python
+- ### Golang
+### Test results
+
 #
 
 ### Objective:
