@@ -86,14 +86,13 @@ I used multiple test files in python and golang for either testing the functiona
 
 regarding the benchmark the comparison between my application in golang and python is as bellow:
 
-> Operating system: Mac
-
-> total number of CPU cores: 8
-
-> number of run: 6
-
-> result:
+```s
+Operating system: Mac
+total number of CPU cores: 8
+number of run: 6
+result:
 > - Python : 2.202525291 s 
 > - Golang: 2.2 s 
+```
 
 so both of them had almost the same execution time but golang is a little faster if we just increase the number of test loops 
