@@ -1,9 +1,9 @@
 # TOC
 ### Objective
 ### solutions
-#### Python
-#### Golang
-### test results 
+- #### [Python](### Python)
+- #### [Golang](### Golang)
+### [test-results](### test results)
 
 
 ### Python
