@@ -24,7 +24,7 @@ I have choosen to write the code using **Fanout-Bounded** algorithm. this way, I
 using this method I don't have to create a lot of go routins and so wait to the cleaning cycle each time to free them up when I need to run this code multiple times 
 I also included the heart of the program in a package so that I can test it well as well as make the program more readable and exposing the package anyway
 
-the process starts with the main package where we I read the input file and convert it to a slice of strings. then this slice will be sent to the Anagram package. 
+the process starts with the [main](/anagram-golang/main.go) package where we I read the input file and convert it to a slice of strings. then this slice will be sent to the Anagram package. 
 
 the following lines show the main part of the packge:
 
