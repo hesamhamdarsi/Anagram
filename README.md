@@ -1,15 +1,42 @@
 # TOC
-## Objective
-## solutions
-### Python
-### Golang
-## Pros and Cons
+### Objective
+### solutions
+#### Python
+#### Golang
+### test results 
+
 
 ### Python
 there are multiple methods that enable us to write a bunch of codes for sorting a file in a way 
 > - Nested for loop
 > - Python read-to-go libraries
 > - Dictionary and sort
+
+as the nested loops are not the proper way, I would have two options. either using available python libraries or wrtie a spesific code for this target. using some liberaries like [GroupBy](https://docs.python.org/3/library/itertools.html#itertools.groupby) I didn't get the fastest execution time that is possible. that's wht I choosed to write my own block of codes.
+
+the process starts with the [main](/anagram-python/main.py) package where we I read the input file and convert it to a list of strings. remove the duplicated words from it, and I am converting all words to lower case to make sense during the comparison. then this list will be sent to the [Anagram package](/anagram-python/anagrampkg/anagramlib.py). 
+
+the following lines show the main part of the Anagram packge:
+
+```python
+try:
+    final_list = []
+    sorted_dict = {}
+    for word in primary_list:
+        # to sort every word of the list alphabetic , e.g. act -> ['c','a,'t']
+        temp = sorted(word) 
+        join_factor = ""
+        temp = join_factor.join(temp) 
+        # create/update dictionary with keys that are "sorted word"
+        sorted_dict.setdefault(temp,[]).append(word)
+except:
+    print("cannot read the list")
+return sorted_dict
+```
+
+here I just used to get the list of words, sort each one based on alphabet, re-assemble them as a word and use this sorted word as the key. then any word that is compatible with this sorted key, will be appended to the dictionary (the key will be created if not exist)
+
+then the I am adding the output to a file in the main module and remove those that are not anagram.
 
 ### Golang
 one benefit of using golang or any multi thread PL is using multiple services to get the job done simulteseusly 
@@ -30,20 +57,20 @@ the following lines show the main part of the Anagram packge:
 
 ```go
 for worker := 0; worker < coreNum; worker++ {
-		go func(worker int) {
-			defer wg.Done()
-			for word := range ch {
-				calculate(word, originalList, SortedMap, &mu)
-			}
-		}(worker)
-	}
+    go func(worker int) {
+        defer wg.Done()
+        for word := range ch {
+            calculate(word, originalList, SortedMap, &mu)
+        }
+    }(worker)
+}
 
-	for _, word := range originalList {
-		ch <- word
-	}
+for _, word := range originalList {
+    ch <- word
+}
 
-	close(ch)
-	wg.Wait()
+close(ch)
+wg.Wait()
 ```
 
 I have tried to chose variables that are kind of clear what they are doing but breifly this block if code is getting each word in the list, send that to a queue and then multiple goroutins (depend on the OS threads) will pick the word from the buffer up and then send them to the calculation function. 
@@ -54,3 +81,14 @@ then the unique function will check for any dupplicated value and remove them fr
 
 next will be writing this customized values into the output file in the main module.
 
+### test results
+I used multiple test files in python and golang for either testing the functionality of the core module(Anagram) using unit test and  benchmark to compare it with the other available solutions as well as compare it with the golang version of deployment.
+
+regarding the benchmark the comparison between my application in golang and python is as bellow:
+> Operating system: Mac
+> total number of CPU cores: 8
+> number of run:
+> > Python : 2.202525291 s 
+> > Golang: 2.2 s 
+
+so both of them had almost the same execution time but golang is a little faster if we just increase the number of test loops 
