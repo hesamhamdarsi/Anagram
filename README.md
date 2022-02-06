@@ -1,11 +1,11 @@
 # TOC
 ### Objective
 ### solutions
-### - Python
-### - Golang
+- ### Python
+- ### Golang
 ### Test results
 
-
+#
 
 ### Python
 there are multiple methods that enable us to write a bunch of codes for sorting a file in a way 
