@@ -24,13 +24,7 @@ func main() {
 
 	// Write the anagram output to the output file
 	for _, value := range output {
-		line := strings.Join(value[:], " ")
-		if len(value) > 1 {
-			_, err2 := outputFile.WriteString(line + "\n")
-			if err2 != nil {
-				log.Fatal(err2)
-			}
-		}
+		WriteFile(value, outputFile)
 	}
 }
 
@@ -139,4 +133,14 @@ func CreateFile(fileName string) *os.File {
 		log.Fatal(err)
 	}
 	return outputFile
+}
+
+func WriteFile(word []string, file *os.File) {
+	line := strings.Join(word[:], " ")
+	if len(word) > 1 {
+		_, err2 := file.WriteString(line + "\n")
+		if err2 != nil {
+			log.Fatal(err2)
+		}
+	}
 }
