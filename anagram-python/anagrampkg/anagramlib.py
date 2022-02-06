@@ -1,5 +1,3 @@
-from itertools import groupby
-
 def apply_anagram(primary_list):
     try:
         final_list = []

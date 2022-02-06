@@ -85,10 +85,11 @@ next will be writing this customized values into the output file in the main mod
 I used multiple test files in python and golang for either testing the functionality of the core module(Anagram) using unit test and  benchmark to compare it with the other available solutions as well as compare it with the golang version of deployment.
 
 regarding the benchmark the comparison between my application in golang and python is as bellow:
+
 > Operating system: Mac
 > total number of CPU cores: 8
 > number of run:
-> > Python : 2.202525291 s 
-> > Golang: 2.2 s 
+> - Python : 2.202525291 s 
+> - Golang: 2.2 s 
 
 so both of them had almost the same execution time but golang is a little faster if we just increase the number of test loops 
