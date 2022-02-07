@@ -36,8 +36,18 @@ func AnagramFanout(originalList []string) map[string][]string {
 	close(ch)
 	wg.Wait()
 
+	var removeItems []string // too add unique items
+
 	for key, value := range SortedMap {
+		if len(unique(value)) <= 1 {
+			removeItems = append(removeItems, key)
+		}
 		SortedMap[key] = unique(value)
+	}
+
+	// remove unique items
+	for _, item := range removeItems {
+		delete(SortedMap, item)
 	}
 
 	return SortedMap
@@ -69,4 +79,27 @@ func unique(intSlice []string) []string {
 		}
 	}
 	return uniqList
+}
+
+func TopFinder(sortedMap map[string][]string) map[string]string {
+	mostWords := ""
+	maxLen := 0
+	var biggestWords string
+	result := make(map[string]string)
+	maxChars := 0
+	for key, value := range sortedMap {
+		// find the anagram with the most words
+		if len(value) > maxLen {
+			maxLen = len(value)
+			mostWords = key
+		}
+		// find the anagram with the biggest words
+		if len(key) > maxChars {
+			maxChars = len(key)
+			biggestWords = key
+		}
+	}
+	result["mostWords"] = mostWords
+	result["biggestWords"] = biggestWords
+	return result
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"anagram/python/test/anagram-golang/anagrampkg"
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -24,12 +25,16 @@ func main() {
 	for _, value := range output {
 		WriteFile(value, outputFile)
 	}
+
+	result := anagrampkg.TopFinder(output)
+	fmt.Println("our winner is ", output[result["mostWords"]])
+	fmt.Println("the biggest words that are anagram ", output[result["biggestWords"]])
 }
 
 func sliceFile(fileName string) []string {
 
-	var txtlines []string
-	var list1 []string
+	var word []string
+	var temp_list []string
 
 	file, err := os.Open(fileName)
 	defer file.Close()
@@ -42,14 +47,14 @@ func sliceFile(fileName string) []string {
 	scanner.Split(bufio.ScanLines)
 
 	for scanner.Scan() {
-		txtlines = append(txtlines, scanner.Text())
+		word = append(word, scanner.Text())
 	}
 
-	for _, eachline := range txtlines {
+	for _, eachline := range word {
 		eachline = strings.ToLower(eachline)
-		list1 = append(list1, eachline)
+		temp_list = append(temp_list, eachline)
 	}
-	return list1
+	return temp_list
 }
 
 func closeFile(fileName *os.File) {
@@ -70,10 +75,8 @@ func CreateFile(fileName string) *os.File {
 
 func WriteFile(word []string, file *os.File) {
 	line := strings.Join(word[:], " ")
-	if len(word) > 1 {
-		_, err2 := file.WriteString(line + "\n")
-		if err2 != nil {
-			log.Fatal(err2)
-		}
+	_, err2 := file.WriteString(line + "\n")
+	if err2 != nil {
+		log.Fatal(err2)
 	}
 }
