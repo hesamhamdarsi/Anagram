@@ -7,7 +7,7 @@
 #
 
 ### Objective:
-creating a progeram that will get a file including any number of words, look for the words that are anagram and print them in a file
+Wrting a progeram that should get a file including any number of words, look for the words that are anagram with at least another word in the list and print them in the output file
 
 ### Python
 there are multiple methods that enable us to write a bunch of codes for sorting a file in a way 
@@ -42,8 +42,9 @@ here I just used to get the list of words, sort each one based on alphabet, re-a
 then the I am adding the output to a file in the main module and remove those that are not anagram.
 
 ### Golang
-one benefit of using golang or any multi thread PL is using multiple services to get the job done simulteseusly 
+one benefit of using golang or any multi thread PL is using multiple services to get the job done simultaneously 
 this approach is ok if the scrpit includes more CPU process than IO process
+
 there are different approachs for writing this spesific progeam with python using goroutins and channels in Golang
 > - WaitForResult
 > - WaitForTask
@@ -51,7 +52,9 @@ there are different approachs for writing this spesific progeam with python usin
 > - Fanout-Bounded
 
 I have choosen to write the code using **Fanout-Bounded** algorithm. this way, I have a buffered channel and the size of the buffer is limited to the number of threads my operating system can provides
+
 using this method I don't have to create a lot of go routins and so wait to the cleaning cycle each time to free them up when I need to run this code multiple times 
+
 I also included the heart of the program in a package so that I can test it well as well as make the program more readable and exposing the package anyway
 
 the process starts with the [main](/anagram-golang/main.go) package where we I read the input file and convert it to a slice of strings. then this slice will be sent to the [Anagram package](/anagram-golang/anagrampkg/anagrampkg.go#L9). 
