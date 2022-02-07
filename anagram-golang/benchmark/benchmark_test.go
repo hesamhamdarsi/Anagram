@@ -1,4 +1,4 @@
-package xxx
+package benchmarkAnagram
 
 import (
 	"anagram/python/test/anagram-golang/benchmark/anaexec"

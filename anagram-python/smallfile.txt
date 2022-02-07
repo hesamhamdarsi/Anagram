@@ -1,6 +1,5 @@
 CAT
 CATX
-act
 aimn
 atxc
 tacio
@@ -9,3 +8,5 @@ xcot
 xcat
 main
 cat
+tacoi
+iamnotanagram
