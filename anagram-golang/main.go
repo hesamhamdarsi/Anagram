@@ -57,14 +57,6 @@ func sliceFile(fileName string) []string {
 	return temp_list
 }
 
-func closeFile(fileName *os.File) {
-	err := fileName.Close()
-	if err != nil {
-		log.Fatal(err)
-		os.Exit(1)
-	}
-}
-
 func CreateFile(fileName string) *os.File {
 	outputFile, err := os.Create(fileName)
 	if err != nil {
